@@ -55,26 +55,26 @@ export default function SidebarMenu({className} : {className?: string}) {
   ];
   const [open, setOpen] = useState(false);
   return (
-    <div className={cn(
-      "rounded-md flex flex-col md:flex-row  dark:bg-neutral-800 w-full flex-1 mx-auto border border-neutral-200 dark:border-neutral-700 overflow-hidden",
-      "h-[60vh]"
-    )}>
-      <Sidebar open={open} setOpen={setOpen}>
-      <SidebarBody className="justify-between gap-10">
-          <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
-            {open ? <Logo /> :  'BS'}
-            <div className="mt-8 flex flex-col gap-2">
-              {links.map((link, idx) => (
-                <SidebarLink key={idx} link={link} />
-              ))}
-            </div>
-          </div>
-          <div>
-           
-          </div>
-        </SidebarBody>
-      </Sidebar>
-    </div>
+    <div
+  className={cn(
+    `flex flex-col ${open ? 'w-60' : 'w-16'} transition-all duration-300
+    dark:bg-neutral-800 h-screen dark:border-neutral-700 overflow-hidden`
+  )}
+>
+  <Sidebar open={open} setOpen={setOpen}>
+    <SidebarBody className="justify-between gap-10">
+      <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+        {open ? <Logo /> : 'BS'}
+        <div className="mt-8 flex flex-col gap-2">
+          {links.map((link, idx) => (
+            <SidebarLink key={idx} link={link} />
+          ))}
+        </div>
+      </div>
+    </SidebarBody>
+  </Sidebar>
+</div>
+
   )
 }
 
