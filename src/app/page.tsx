@@ -10,13 +10,11 @@ const Home = async() => {
     let briefs =  await briefsData.json()
     
   return (
-    <div className="h-screen w-full bg-neutral-700 relative flex flex-col items-center ">
-        <PlaceholdersAndVanishInputDemo />
-      <div className="max-w-2xl p-4">
-        {briefs?.map((item: any,idx: number)=>(
-          <div className="" key={item?.id}>
-            <p className="text-white">{item.name}</p>
-          </div>
+    <div className="h-screen w-full bg-neutral-700 relative flex space-y-4 flex-col p-4 ">
+      <PlaceholdersAndVanishInputDemo />
+      <div className="">
+      {briefs?.map((item: any,idx: number)=>(
+            <p key={item?.id} className="text-white">{item.name}</p>
         ))}
       </div>
     </div>

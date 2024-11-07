@@ -29,8 +29,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex`}
       >
-        <SidebarMenu />
-        <div className="h-screen w-full left-0 top-0  bg-neutral-700 overflow-scroll">
+        <SidebarMenu titile="adfad" />
+        <div className="h-screen w-full bg-neutral-700 overflow-scroll">
           {children}
         </div>
       </body>

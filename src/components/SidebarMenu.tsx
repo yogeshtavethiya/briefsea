@@ -15,7 +15,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-export default function SidebarMenu({className} : {className?: string}) {
+interface Props {
+  titile:string;
+  phone?: number
+}
+
+export default function SidebarMenu({phone,titile} : Props) {
+  console.log(titile, 'phone')
   const links = [
     {
       label: "All Briefs",
