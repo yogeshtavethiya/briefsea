@@ -1,8 +1,13 @@
 "use client";
 
 import { PlaceholdersAndVanishInput } from "./ui/placeholders-and-vanish-input";
+import { Data } from "@/types/brifes";
 
-export function PlaceholdersAndVanishInputDemo() {
+interface Props {
+  data: Data[]
+}
+export function PlaceholdersAndVanishInputDemo({data}:Props) {
+  console.log(data, 'data in input')
   const placeholders = [
     "Website",
     "Design",
