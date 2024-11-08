@@ -16,12 +16,11 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface Props {
-  titile:string;
+  title:string;
   phone?: number
 }
 
-export default function SidebarMenu({phone,titile} : Props) {
-  console.log(titile, 'phone')
+export default function SidebarMenu({phone,title} : Props) {
   const links = [
     {
       label: "All Briefs",

@@ -1,5 +1,6 @@
 import { PlaceholdersAndVanishInputDemo } from "@/components/changingInput"
-import { Data } from "@/types/brifes"
+import { ExpandableCardDemo } from "@/components/ui/expndable-card-ui"
+import { Data } from "@/types/briefs"
 
 const Home = async() => {
     let count = 0
@@ -13,11 +14,7 @@ const Home = async() => {
   return (
     <div className="h-screen w-full bg-neutral-700 relative flex space-y-4 flex-col p-4 ">
       <PlaceholdersAndVanishInputDemo data={briefs} />
-      <div className="">
-      {briefs?.map((item:Data,idx: number)=>(
-            <p key={item?.id} className="text-white">{item.name}</p>
-        ))}
-      </div>
+      <ExpandableCardDemo data={briefs} />
     </div>
   )
 }

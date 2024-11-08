@@ -1,13 +1,16 @@
 "use client";
 
 import { PlaceholdersAndVanishInput } from "./ui/placeholders-and-vanish-input";
-import { Data } from "@/types/brifes";
+import { Data } from "@/types/briefs";
+import { useState } from "react";
 
 interface Props {
-  data: Data[]
+  data: Data[];
 }
-export function PlaceholdersAndVanishInputDemo({data}:Props) {
-  console.log(data, 'data in input')
+
+export function PlaceholdersAndVanishInputDemo({ data }: Props) {
+  const [inputValue, setInputvalue] = useState('')
+
   const placeholders = [
     "Website",
     "Design",
@@ -17,12 +20,17 @@ export function PlaceholdersAndVanishInputDemo({data}:Props) {
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
+    setInputvalue(e.target.value)
   };
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("submitted");
+   const filteredData = data.filter((item)=>{
+    return item.name.toLowerCase().includes(inputValue.toLowerCase())
+   })
+   console.log(filteredData, 'filtered data')
   };
+
   return (
     <div className=" ">
       <PlaceholdersAndVanishInput
