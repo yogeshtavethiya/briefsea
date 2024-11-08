@@ -4,12 +4,15 @@ import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { Data } from "@/types/briefs";
+import { useBriefStore } from '@/store/useBriefStore';
 
 interface Props {
   data: Data[];
 }
 
 export function ExpandableCardDemo({data}: Props) {
+  const {  briefs } = useBriefStore.getState();
+  console.log(briefs, 'card component')
   const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(
     null
   );
