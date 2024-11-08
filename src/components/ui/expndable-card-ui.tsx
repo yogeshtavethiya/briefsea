@@ -56,7 +56,7 @@ export function ExpandableCardDemo({data}: Props) {
       </AnimatePresence>
       <AnimatePresence>
         {active && typeof active === "object" ? (
-          <div className="fixed inset-0  grid place-items-center z-[100]">
+          <div className="fixed inset-0  place-items-center z-[100]">
             <motion.button
               key={`button-${active.title}-${id}`}
               layout
@@ -98,7 +98,7 @@ export function ExpandableCardDemo({data}: Props) {
                   <div className="">
                     <motion.h3
                       layoutId={`title-${active.title}-${id}`}
-                      className="font-bold text-neutral-700 dark:text-neutral-200"
+                      className="font-bold text-neutral-700 dark:text-neutral-600"
                     >
                       {active.title}
                     </motion.h3>
@@ -137,13 +137,13 @@ export function ExpandableCardDemo({data}: Props) {
           </div>
         ) : null}
       </AnimatePresence>
-      <ul className="max-w-2xl mx-auto w-full gap-4">
+      <ul className="max-w-10xl mx-auto w-full gap-2 grid grid-cols-3">
         {data.map((card, index) => (
           <motion.div
             layoutId={`card-${card.title}-${id}`}
             key={`card-${card.title}-${id}`}
             // onClick={() => setActive(card)}
-            className="p-4 flex flex-col md:flex-row justify-between bg-neutral-500 m-4 items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
+            className="p-4 flex flex-col md:flex-row justify-between bg-white m-4 items-center hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-xl cursor-pointer"
           >
             <div className="flex gap-4 flex-col md:flex-row ">
               <motion.div layoutId={`image-${card.title}-${id}`}>
@@ -158,13 +158,13 @@ export function ExpandableCardDemo({data}: Props) {
               <div className="">
                 <motion.h3
                   layoutId={`title-${card.name}-${id}`}
-                  className="font-medium text-neutral-200 dark:text-neutral-200 text-center md:text-left"
+                  className="font-medium text-neutral-600 dark:text-neutral-600 text-center md:text-left"
                 >
                   {card.name}
                 </motion.h3>
                 <motion.h3
                   layoutId={`title-${card.name}-${id}`}
-                  className="font-medium text-neutral-200 dark:text-neutral-200 text-center md:text-left"
+                  className="font-medium text-neutral-600 dark:text-neutral-600 text-center md:text-left"
                 >
                   {card.category}
                 </motion.h3>
@@ -185,16 +185,16 @@ export function ExpandableCardDemo({data}: Props) {
                   layoutId={`description-${card.description}-${id}`}
                   className="text-neutral-600 dark:text-neutral-400 text-center md:text-left"
                 >
-                  {card.postText}
+                  {card?.postText?.substring(0, 70)}...
                 </motion.p>
               </div>
             </div>
-            <motion.button
+            {/* <motion.button
               layoutId={`button-${card.title}-${id}`}
               className="px-4 py-2 text-sm rounded-full font-bold bg-gray-100 hover:bg-green-500 hover:text-white text-black mt-4 md:mt-0"
             >
               {card.ctaText}
-            </motion.button>
+            </motion.button> */}
           </motion.div>
         ))}
       </ul>
